@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>SIGMORA - Bimbel & TryOut Sekolah Kedinasan</title>
 <!-- FONT BARU: Montserrat (Tegas), Plus Jakarta Sans (Rapi) -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,18 +19,21 @@
     --text-secondary:#5A6B6B;
   }
 
-  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-main); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-main); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; width: 100%; }
   html { scroll-behavior: smooth; }
   
   /* TIPOGRAFI TEGAS */
   h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; letter-spacing: -1px; font-weight: 900; }
   p { font-weight: 400; letter-spacing: 0.2px; }
 
-  /* NAVBAR */
-  .navbar { display:flex; justify-content:space-between; align-items:center; padding: 20px 40px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,.03); position: sticky; top:0; z-index: 100; }
+  /* NAVBAR DESKTOP */
+  .navbar { display:flex; justify-content:space-between; align-items:center; padding: 15px 40px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,.03); position: sticky; top:0; z-index: 100; width: 100%; }
   .brand { display:flex; align-items:center; gap:12px; font-family:'Montserrat', sans-serif; font-weight:900; font-size:24px; color: var(--core); text-decoration: none; }
   .brand img { height: 45px; border-radius: 8px; }
+  
+  /* BUNGKUS KANAN (Menu + Sosmed + Hamburger) */
   .nav-right { display: flex; align-items: center; gap: 20px; }
+  
   .nav-links a { text-decoration: none; color: var(--text-primary); font-weight: 600; margin-left: 25px; transition: 0.3s; font-size: 16px; }
   .nav-links a:hover { color: var(--accent); }
   .btn-nav { background: var(--core); color: #fff !important; padding: 10px 24px; border-radius: 8px; box-shadow: 0 4px 10px rgba(11,60,42,.2); }
@@ -39,9 +42,16 @@
   .social-nav { display: flex; gap: 12px; align-items: center; margin-left: 15px; border-left: 1px solid #ddd; padding-left: 20px; }
   .social-nav a { color: var(--core); transition: 0.3s; display: flex; align-items: center; }
   .social-nav a:hover { color: var(--accent); transform: translateY(-2px); }
+  
+  /* HAMBURGER MENU (Default hidden di Desktop) */
+  .menu-toggle { display: none; width: 28px; height: 20px; position: relative; cursor: pointer; flex-shrink: 0; }
+  .menu-toggle span { display: block; position: absolute; height: 3px; width: 100%; background: var(--core); border-radius: 3px; transition: 0.3s ease-in-out; }
+  .menu-toggle span:nth-child(1) { top: 0px; }
+  .menu-toggle span:nth-child(2) { top: 8.5px; }
+  .menu-toggle span:nth-child(3) { top: 17px; }
 
   /* HERO SECTION */
-  .hero { display: flex; align-items: center; justify-content: space-between; padding: 120px 40px 100px 40px; max-width: 1200px; margin: 0 auto; gap: 60px; position: relative; }
+  .hero { display: flex; align-items: center; justify-content: space-between; padding: 100px 40px 100px 40px; max-width: 1200px; margin: 0 auto; gap: 60px; position: relative; }
   .hero-text { flex: 1.2; }
   .hero-badge { display: inline-block; background: #E6EFEA; color: var(--core); font-weight: 700; font-size: 14px; padding: 8px 20px; border-radius: 30px; margin-bottom: 24px; border: 1px solid #C8DCD3; }
   
@@ -51,14 +61,14 @@
   
   /* FOTO TARUNA DI HERO */
   .hero-img { flex: 1; position: relative; }
-  .hero-img img { width: 100%; max-width: 550px; height: 550px; object-fit: cover; border-radius: 30px; box-shadow: 0 30px 60px rgba(11,60,42,.15); border: 6px solid #fff; transition: transform 0.5s; }
+  .hero-img img { width: 100%; max-width: 550px; height: 550px; object-fit: cover; border-radius: 30px; box-shadow: 0 30px 60px rgba(11,60,42,.15); border: 6px solid #fff; transition: transform 0.5s; display: block; margin: 0 auto;}
   .hero-img img:hover { transform: scale(1.02) rotate(1deg); }
 
   /* CTA BUTTONS */
   .cta-group { display: flex; gap: 20px; align-items: center; }
-  .btn-cta { display: inline-block; background: var(--accent); color: var(--core-dark); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 16px 36px; border-radius: 14px; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 20px rgba(244, 162, 89, 0.3); border: 2px solid var(--accent); text-transform: uppercase;}
+  .btn-cta { display: inline-block; background: var(--accent); color: var(--core-dark); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 16px 36px; border-radius: 14px; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 20px rgba(244, 162, 89, 0.3); border: 2px solid var(--accent); text-transform: uppercase; cursor: pointer;}
   .btn-cta:hover { background: var(--accent-dark); transform: translateY(-4px); box-shadow: 0 15px 30px rgba(244, 162, 89, 0.5); border-color: var(--accent-dark); }
-  .btn-outline { display: inline-block; background: transparent; color: var(--core); font-weight: 700; font-size: 1.1rem; padding: 16px 34px; border-radius: 14px; text-decoration: none; border: 2px solid var(--core); transition: 0.3s; }
+  .btn-outline { display: inline-block; background: transparent; color: var(--core); font-weight: 700; font-size: 1.1rem; padding: 16px 34px; border-radius: 14px; text-decoration: none; border: 2px solid var(--core); transition: 0.3s; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;}
   .btn-outline:hover { background: var(--core); color: #fff; }
 
   /* STATISTIK SECTION */
@@ -94,7 +104,7 @@
   }
   .card-fitur:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(11,60,42,.15); }
   
-  /* Background Gambar (Ganti URL Sesuka Hati) */
+  /* Background Gambar */
   .bg-fitur-1 { background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop') center/cover; }
   .bg-fitur-2 { background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop') center/cover; }
   .bg-fitur-3 { background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop') center/cover; }
@@ -147,7 +157,7 @@
   .social-footer a:hover { background: var(--accent); color: var(--core-dark); transform: translateY(-5px); }
 
   /* FLOATING WHATSAPP */
-  .float-wa { position: fixed; bottom: 40px; right: 40px; background: #22C55E; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(34,197,94,0.4); z-index: 999; transition: 0.3s; text-decoration: none; cursor: pointer; border: none;}
+  .float-wa { position: fixed; bottom: 30px; right: 30px; background: #22C55E; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(34,197,94,0.4); z-index: 999; transition: 0.3s; text-decoration: none; cursor: pointer; border: none;}
   .float-wa:hover { transform: scale(1.1) rotate(10deg); background: #16A34A; }
 
   /* ================= MODAL FORM WA ================= */
@@ -170,42 +180,169 @@
   .btn-tutup { background: transparent; color: #9CA3AF; border: none; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-top: 15px; transition: 0.3s; width: 100%; text-align: center; }
   .btn-tutup:hover { color: var(--core); }
 
-  /* RESPONSIVE (MOBILE) */
+
+  /* ========================================================= */
+  /* =============== RESPONSIVE (MOBILE & TABLET) ============ */
+  /* ========================================================= */
+
+  /* --- TABLET --- */
   @media (max-width: 1024px) {
+    .navbar { padding: 15px 25px; }
+    .brand { font-size: 22px; }
+    .brand img { height: 40px; }
+    .nav-links a { margin-left: 15px; font-size: 14px; }
+    .btn-nav { padding: 8px 18px; }
+    .social-nav { display: none; }
+
+    .hero { flex-direction: column-reverse; padding: 60px 30px 60px 30px; text-align: center; gap: 40px; }
     .hero-text h1 { font-size: 3rem; }
-    .grid-fitur, .grid-materi { grid-template-columns: 1fr 1fr; }
-    .grid-galeri { grid-template-columns: repeat(2, 1fr); }
+    .hero-text p { font-size: 1.1rem; }
+    .cta-group { justify-content: center; }
+    .hero-img img { width: 100%; max-width: 450px; height: auto; aspect-ratio: 1/1; }
+
+    .stats { margin: -40px 25px 60px 25px; padding: 40px 20px; gap: 20px; flex-wrap: wrap; }
+    .stat-item { flex: 1 1 40%; }
+
+    .fitur, .galeri-section, .testimoni { padding: 80px 30px; }
+    .grid-fitur { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .card-psikotes { flex-direction: column; text-align: center; gap: 20px; }
+    .card-psikotes .btn-cta { width: 100%; margin-top: 10px; }
+    
+    .materi-section { padding: 80px 30px; }
+    .grid-materi { grid-template-columns: 1fr; gap: 25px; }
+
+    .grid-galeri { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .foto-galeri { height: 280px; }
+
+    .grid-testimoni { grid-template-columns: repeat(2, 1fr); }
   }
+
+  /* --- MOBILE (HP) --- */
   @media (max-width: 768px) {
-    .hero { flex-direction: column; padding: 80px 20px 40px 20px; text-align: center; gap: 40px; }
-    .hero-text h1 { font-size: 2.5rem; }
-    .cta-group { justify-content: center; flex-direction: column; }
-    .btn-cta, .btn-outline { width: 100%; text-align: center; }
-    .hero-img img { height: 400px; }
-    .grid-fitur, .grid-materi { grid-template-columns: 1fr; }
-    .navbar { padding: 15px 20px; }
-    .nav-links { display: none; } 
-    .social-nav { display: none; } 
-    .stats { margin: -20px 20px 40px 20px; padding: 30px 20px; border-radius: 20px; }
-    .stat-item h3 { font-size: 2.2rem; }
-    .section-title { font-size: 2rem; }
-    .foto-galeri { height: 250px; }
-    .float-wa { width: 50px; height: 50px; bottom: 20px; right: 20px; }
-    .float-wa svg { width: 28px; height: 28px;}
+    
+    .navbar { 
+      padding: 12px 20px; 
+      position: sticky; 
+      top: 0;
+      display: flex;
+      justify-content: space-between; /* Logo kiri, sisa kanan */
+      align-items: center;
+    }
+    
+    .brand { font-size: 20px; display: flex; align-items: center; }
+    .brand img { height: 35px; }
+    
+    /* KUNCI PERBAIKAN: Bungkus kanan ditarik mentok kanan & sejajar */
+    .nav-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* Tampilkan tombol garis 3 */
+    .menu-toggle { 
+      display: block; 
+    }
+
+    /* Dropdown Menu Mobile */
+    .nav-links { 
+      display: none; 
+      position: absolute; 
+      top: 100%; 
+      left: 0; 
+      width: 100%; 
+      background: #fff; 
+      flex-direction: column; 
+      padding: 20px; 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      gap: 15px;
+      z-index: 99;
+      border-top: 1px solid #eee;
+    }
+    .nav-links.active { display: flex; }
+    .nav-links a { margin: 0; width: 100%; text-align: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 16px; }
+    .btn-nav { margin-top: 10px; width: 100%; text-align: center; padding: 12px; border-bottom: none; }
+
+    /* Hero Mobile */
+    .hero { padding: 40px 20px; gap: 25px; }
+    .hero-text h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 15px; }
+    .hero-text p { font-size: 0.95rem; margin-bottom: 25px; }
+    .cta-group { flex-direction: column; width: 100%; gap: 12px; }
+    .btn-cta, .btn-outline { width: 100%; text-align: center; padding: 14px; font-size: 0.95rem; }
+    .hero-img img { max-width: 280px; height: auto; aspect-ratio: 1/1; border-width: 4px; }
+
+    /* Stats Mobile */
+    .stats { margin: -20px 15px 40px 15px; padding: 25px 15px; gap: 15px 10px; border-radius: 20px; }
+    .stat-item { flex: 1 1 45%; min-width: 120px; }
+    .stat-item h3 { font-size: 1.8rem; }
+    .stat-item p { font-size: 0.8rem; }
+
+    /* Section Umum */
+    .section-title { font-size: 1.8rem; }
+    .section-subtitle { font-size: 0.95rem; margin-bottom: 30px; }
+
+    /* Fitur Mobile */
+    .fitur { padding: 50px 20px; }
+    .grid-fitur { grid-template-columns: 1fr; gap: 15px; }
+    .card-fitur { padding: 25px 20px; }
+    .card-fitur h3 { font-size: 1.2rem; }
+    
+    .card-psikotes { padding: 30px 20px; }
+    .card-psikotes h3 { font-size: 1.5rem; }
+    .card-psikotes p { font-size: 0.95rem; }
+    .card-psikotes div[style*="display: flex"] { flex-direction: column; gap: 10px; }
+    .icon-psikotes { margin-bottom: 0; }
+
+    /* Materi Mobile */
+    .materi-section { padding: 50px 20px; }
+    .grid-materi { grid-template-columns: 1fr; }
+    .card-materi { padding: 25px 20px !important; }
+
+    /* Galeri Mobile */
+    .galeri-section { padding: 50px 20px; }
+    .grid-galeri { grid-template-columns: 1fr; gap: 15px; }
+    .foto-galeri { height: 220px; }
+    .foto-galeri .overlay { opacity: 1; background: linear-gradient(to top, rgba(11,60,42,0.9), transparent 60%); }
+
+    /* Testimoni Mobile */
+    .testimoni { padding: 50px 20px; }
+    .grid-testimoni { grid-template-columns: 1fr; gap: 15px; }
+    .card-testi { padding: 25px 20px; }
+    .card-testi p { font-size: 0.95rem; }
+
+    /* Footer Mobile */
+    footer { padding: 40px 20px; }
+    .float-wa { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+    .float-wa svg { width: 30px; height: 30px;}
+
+    /* Modal Mobile */
+    .modal-box { padding: 25px 20px; }
   }
+
+  /* --- HP KECIL (iPhone SE, dll) --- */
+  @media (max-width: 400px) {
+    .hero-text h1 { font-size: 1.9rem; }
+    .stat-item { flex: 1 1 100%; }
+    .brand { font-size: 18px; }
+    .brand img { height: 30px; }
+  }
+
 </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar">
+    <!-- Logo di Kiri -->
     <a href="https://web-awal-sigmora.vercel.app/" class="brand">
       <img src="https://i.imgur.com/fyKfXaZ.png" alt="Logo">
       SIGMORA
     </a>
+    
+    <!-- Semua elemen kanan dibungkus di sini -->
     <div class="nav-right">
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="#">Beranda</a>
         <a href="#materi">Materi</a>
         <a href="#fitur">Program</a>
@@ -221,6 +358,13 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
         </a>
       </div>
+      
+      <!-- Tombol Garis 3 (Sekarang ada di dalam nav-right) -->
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
@@ -235,7 +379,6 @@
         <a href="https://pilihan-kategori-tes.vercel.app/" class="btn-cta">
           Pilih Kategori Tes
         </a>
-        <!-- UBAH TOMBOL KONSULTASI JADI BUKA FORM WA -->
         <button onclick="bukaModalWa()" class="btn-outline">
           Konsultasi
         </button>
@@ -274,7 +417,6 @@
       
       <div class="grid-fitur">
         
-        <!-- FITUR 1 -->
         <div class="card-fitur bg-fitur-1 fade-in">
           <div class="icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
@@ -283,7 +425,6 @@
           <p>Simulasi ujian yang persis sama seperti sistem Computer Assisted Test (CAT) BKN asli.</p>
         </div>
 
-        <!-- FITUR 2 -->
         <div class="card-fitur bg-fitur-2 fade-in" style="transition-delay: 0.1s;">
           <div class="icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -292,7 +433,6 @@
           <p>Dibimbing langsung oleh tutor yang sudah ahli di bidangnya dan berpengalaman.</p>
         </div>
 
-        <!-- FITUR 3 -->
         <div class="card-fitur bg-fitur-3 fade-in" style="transition-delay: 0.2s;">
           <div class="icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -301,7 +441,6 @@
           <p>Kumpulan soal selalu diperbarui dan disesuaikan dengan kisi-kisi terbaru.</p>
         </div>
         
-        <!-- CARD WEB PSIKOTES (TANPA EMOJI) -->
         <div class="card-psikotes fade-in" style="transition-delay: 0.3s;">
           <div style="display: flex; align-items: flex-start; gap: 20px;">
             <div class="icon-psikotes">
@@ -414,7 +553,6 @@
       <p class="section-subtitle fade-in">Cerita sukses dari para pejuang Sekolah Kedinasan.</p>
       
       <div class="grid-testimoni">
-        <!-- TESTI 1 -->
         <div class="card-testi fade-in">
           <p>"Soal-soal di SIGMORA sangat mirip dengan tes asli SKD. Pembahasannya juga jelas, jadi saya tahu di mana letak kesalahan saya. Alhamdulillah tahun ini saya lolos STAN!"</p>
           <div class="user-info">
@@ -426,7 +564,6 @@
           </div>
         </div>
         
-        <!-- TESTI 2 -->
         <div class="card-testi fade-in" style="transition-delay: 0.1s;">
           <p>"Fitur tryout berbasis CAT-nya bener-bener ngebantu banget. Saya bisa tau posisi nilai TWK, TIU, dan TKP saya. Web-nya juga nggak lemot dan gampang dipake di HP."</p>
           <div class="user-info">
@@ -438,7 +575,6 @@
           </div>
         </div>
 
-        <!-- TESTI 3 -->
         <div class="card-testi fade-in" style="transition-delay: 0.2s;">
           <p>"Belajar matematika dasar dan TIU jadi lebih terstruktur. Dibimbing sama tutor yang asik dan berpengalaman. Terima kasih SIGMORA sudah bantu saya mewujudkan mimpi!"</p>
           <div class="user-info">
@@ -468,7 +604,6 @@
   </footer>
 
   <!-- FLOATING WHATSAPP -->
-  <!-- UBAH JADI BUTTON UNTUK MEMICU MODAL -->
   <button onclick="bukaModalWa()" class="float-wa" title="Hubungi Admin">
     <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 2C6.51 2 2.014 6.496 2.014 12.017c0 1.766.461 3.49 1.336 5.012L2 22l5.108-1.338A9.968 9.968 0 0012.03 22c5.521 0 10.017-4.496 10.017-10.017S17.552 2 12.031 2zm5.223 14.03c-.222.625-1.286 1.196-1.762 1.242-.476.047-1.065.21-3.488-1.007-2.914-1.466-4.763-4.478-4.908-4.68-.144-.203-1.166-1.554-1.166-2.966 0-1.412.735-2.104 1.003-2.392.268-.288.587-.36.783-.36.196 0 .392.004.563.013.183.01.43-.07.67.515.245.595.833 2.053.908 2.203.075.15.125.325.025.525-.1.2-.375.604-.6.83-.225.225-.35.375-.225.6.125.225.556.917 1.192 1.486.816.728 1.504.955 1.717 1.062.212.107.338.088.463-.054.125-.142.535-.625.678-.838.143-.213.286-.178.48-.104.195.074 1.238.584 1.45.69.212.107.35.16.4.25.05.09.05.522-.172 1.147z"/></svg>
   </button>
@@ -516,7 +651,7 @@
     </div>
   </div>
 
-  <!-- SCRIPT ANIMASI SCROLL -->
+  <!-- SCRIPT ANIMASI SCROLL & LOGIKA MENU -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver((entries) => {
@@ -530,9 +665,21 @@
       document.querySelectorAll('.fade-in').forEach((el) => {
         observer.observe(el);
       });
+
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      
+      menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
     });
 
-    // --- SCRIPT MODAL FORM WA ---
     function bukaModalWa() {
       document.getElementById('modalWa').classList.add('active');
     }
@@ -541,34 +688,26 @@
       document.getElementById('modalWa').classList.remove('active');
     }
 
-    // Tutup modal kalau klik di luar kotak
     document.getElementById('modalWa').addEventListener('click', function(e) { 
       if (e.target === this) { 
         tutupModalWa(); 
       } 
     });
 
-    // Fungsi Kirim ke WhatsApp
     function kirimWa(event) {
       event.preventDefault(); 
-      
-      // NOMOR WA ADMIN (UDAH GW GANTI KE NOMOR LU)
       const NOMOR_WA_ADMIN = "62895615420009"; 
-
       const nama = document.getElementById('waNama').value;
       const asal = document.getElementById('waAsal').value;
       const program = document.getElementById('waProgram').value;
       const target = document.getElementById('waTarget').value;
 
-      // Format pesan yang rapi buat masuk ke WA Admin
       const pesan = `Halo Admin SIGMORA,%0A%0ASaya ingin konsultasi mengenai bimbel.%0A%0A*Nama:* ${nama}%0A*Asal/Kota:* ${asal}%0A*Program:* ${program}%0A*Target:* ${target}%0A%0AMohon info selengkapnya ya Kak. Terima kasih!`;
       
       const urlWa = `https://wa.me/${NOMOR_WA_ADMIN}?text=${pesan}`;
       
-      // Buka WA di tab baru
       window.open(urlWa, '_blank');
       
-      // Tutup modal setelah kirim
       tutupModalWa();
     }
   </script>
